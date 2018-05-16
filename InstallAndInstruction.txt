@@ -10,6 +10,8 @@ npm install geckodriver --save-dev
 
 node inspect  Server1.js
 
+ npm install sleep --save-dev
+
 /*
  working with lastest WebDriver API
 

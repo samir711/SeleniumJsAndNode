@@ -35,6 +35,35 @@ var service = new firefox.ServiceBuilder(path).build();
 // firefox.setDefaultService(service);
 
 let driver = new WebDriver.Builder().forBrowser('firefox').setFirefoxOptions(firefoxOptions).build();
-const newLocal = driver.get('http://www.google.com/ncr')
-                  //     .then(driver.findElement(By.name('q')).sendKeys('webdriver', WebDriver.Key.RETURN))
-//driver.wait(until.titleIs('webdriver - Google Search'), 6000).then(_ => driver.quit());
+driver.manage().window().maximize();
+const newLocal =
+ driver.get('http://www.google.com/ncr').then(driver.findElement(By.name('q')).sendKeys('webdriver', WebDriver.Key.RETURN))
+       //.then(_ => driver.sleep(9000));
+       startTimer(100000);
+driver.wait(until.titleIs('webdriver - Google Search'), 10000)
+.then(_ => driver.quit());
+
+function startTimer (InMilliseconds) {
+    timer.start();
+    setTimeout(stopTimer,InMilliseconds);
+};
+
+function stopTimer () {
+    timer.stop();
+};
+
+// function Pause(time) {
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             resolve();
+//         }, time);
+//     });
+
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > milliseconds){
+                break;
+            }
+        }
+    }
