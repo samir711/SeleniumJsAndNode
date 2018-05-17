@@ -1,10 +1,3 @@
-/*
-https://cnpmjs.org/package/firefox-profile
-
-
-*/
-
-
 const WebDriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const firefox = require('selenium-webdriver/firefox');
@@ -38,33 +31,10 @@ var service = new firefox.ServiceBuilder(path).build();
 let driver = new WebDriver.Builder().forBrowser('firefox').setFirefoxOptions(firefoxOptions).build();
 driver.manage().window().maximize();
 const newLocal =
- driver.get('http://www.google.com/ncr').then(driver.findElement(By.name('q')).sendKeys('webdriver', WebDriver.Key.RETURN))
-       .then(_ => driver.sleep(9000));
-      sleep.sleep(10)
-driver.wait(until.titleIs('webdriver - Google Search'), 10000)
-//.then(_ => driver.quit());
-
-function startTimer (InMilliseconds) {
-    timer.start();
-    setTimeout(stopTimer,InMilliseconds);
-};
-
-function stopTimer () {
-    timer.stop();
-};
-
-// function Pause(time) {
-//     return new Promise(resolve => {
-//         setTimeout(() => {
-//             resolve();
-//         }, time);
-//     });
-
-    // function sleep(milliseconds) {
-    //     var start = new Date().getTime();
-    //     for (var i = 0; i < 1e7; i++) {
-    //         if ((new Date().getTime() - start) > milliseconds){
-    //             break;
-    //         }
-    //     }
-    // }
+ driver.get('http://desktop-llgeu3m:90/Account/Login').then(driver.findElement(By.name('UserName')).sendKeys('admin'));
+ driver.findElement(By.name('Password')).sendKeys('password').then(driver.findElement(By.css('input[type="submit"]')).click());
+ driver.sleep(5000);
+ let element = driver.findElement(By.xpath('.//*[text() = "Log off"]'));
+ driver.wait(WebDriver.until.elementLocated(By.xpath('.//*[text() = "Log off"]'),30000));
+ //driver.wait(until.elementTextIs(,"Hello Admin!"),10000));
+ 

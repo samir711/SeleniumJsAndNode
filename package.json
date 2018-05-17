@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "python": "0.0.4"
+  },
   "devDependencies": {
     "chromedriver": "^2.38.3",
     "firefox-profile": "^1.1.0",
     "geckodriver": "^1.11.0",
-    "selenium-webdriver": "^4.0.0-alpha.1"
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "sleep": "^5.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

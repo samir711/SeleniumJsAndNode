@@ -21,3 +21,7 @@ https: //stackoverflow.com/questions/44197253/headless-automation-with-nodejs-se
 http: //seleniumhq.github.io/selenium/docs/api/javascript/index.html
 
 */
+
+npm install --global --production windows-build-tools
+
+npm install --global node-gyp
